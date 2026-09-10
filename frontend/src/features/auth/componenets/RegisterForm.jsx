@@ -30,18 +30,30 @@ export default function RegisterForm({
       [name]: "",
     }));
   };
-
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const username = form.username.trim();
     const errors = {};
 
-    if (!form.username.trim()) {
+    if (!username) {
       errors.username = "Username is required.";
+    } else if (EMAIL_REGEX.test(username)) {
+      errors.username = "Username cannot be an email address.";
+    } else if (username.length < 3) {
+      errors.username = "Username must be at least 3 characters.";
+    } else if (!USERNAME_REGEX.test(username)) {
+      errors.username =
+        "Username can only contain letters, numbers, and underscores.";
     }
 
-    if (!form.email.trim()) {
+    const email = form.email.trim();
+    if (!email) {
       errors.email = "Email is required.";
+    } else if (!/[A-Z]/.test(form.password) || !/[0-9]/.test(form.password)) {
+      errors.password =
+        "Password must include an uppercase letter and a number.";
     }
 
     if (!form.password) {
