@@ -10,6 +10,7 @@ import {
   login as loginRequest,
   logout as logoutRequest,
   refresh as refreshRequest,
+  loginWithGoogle as loginWithGoogleRequest,
 } from "../api/auth.api";
 
 import { clearAccessToken, setAccessToken } from "../utils/tokenStore";
@@ -47,7 +48,16 @@ export function AuthProvider({ children }) {
     },
     [storeSession],
   );
+  const loginWithGoogle = useCallback(
+    async (credential) => {
+      const data = await loginWithGoogleRequest(credential);
 
+      storeSession(data);
+
+      return data;
+    },
+    [storeSession],
+  );
   const refresh = useCallback(async () => {
     const data = await refreshRequest();
 
@@ -101,8 +111,9 @@ export function AuthProvider({ children }) {
       login,
       refresh,
       logout,
+      loginWithGoogle,
     }),
-    [user, loading, accessToken, login, refresh, logout],
+    [user, loading, accessToken, login, refresh, logout, loginWithGoogle],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

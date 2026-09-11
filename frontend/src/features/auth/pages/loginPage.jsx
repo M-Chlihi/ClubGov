@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BrandLogo from "../../public/brand/brandLogo";
-
+import GoogleSignInButton from "../componenets/GoogleSignInButton";
 import { useAuth } from "../hooks/useAuth";
 import LoginForm from "../componenets/loginForm";
 
@@ -11,7 +11,7 @@ export default function LoginPage() {
 
   const location = useLocation();
 
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
 
   const [error, setError] = useState("");
 
@@ -81,7 +81,43 @@ export default function LoginPage() {
       setSubmitting(false);
     }
   };
+  const handleGoogleSuccess = async (response) => {
+    setSubmitting(true);
+    setError("");
 
+    try {
+      const data = await loginWithGoogle(response.credential);
+
+      const roles = data.user?.roles ?? [];
+
+      if (roles.includes("Admin")) {
+        navigate("/admin", {
+          replace: true,
+        });
+
+        return;
+      }
+
+      if (roles.includes("Editor")) {
+        navigate("/admin", {
+          replace: true,
+        });
+
+        return;
+      }
+
+      navigate("/member", {
+        replace: true,
+      });
+    } catch (err) {
+      setError(
+        err.response?.data?.message ||
+          "Unable to sign in with Google. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
   return (
     <main className="flex min-h-screen items-center justify-center px-4 py-10 bg-gradient-to-b from-[#7209b7] from-0% via-white/95 to-white to-100%">
       <section className="w-full max-w-md">
@@ -106,7 +142,16 @@ export default function LoginPage() {
             submitting={submitting}
             error={error}
           />
+          <div className="my-6 flex items-center gap-4">
+            <div className="h-px flex-1 bg-border" />
+            <span className="text-xs text-text-muted">OR</span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
 
+          <GoogleSignInButton
+            onSuccess={handleGoogleSuccess}
+            disabled={submitting}
+          />
           <p className="mt-6 text-center text-sm text-text-secondary">
             Don't have an account?{" "}
             <Link
