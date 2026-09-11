@@ -37,6 +37,7 @@ const register = async (req, res) => {
   }
 };
 
+const { createSession } = require("../services/session.service");
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -49,7 +50,9 @@ const login = async (req, res) => {
     const foundUser = await User.findOne({ email: email })
       .select("+password")
       .exec();
-    if (!foundUser) return res.sendStatus(401);
+    if (!foundUser || !foundUser.password) {
+      return res.sendStatus(401);
+    }
     const match = await bycript.compare(password, foundUser.password);
 
     if (!match) {
@@ -109,4 +112,21 @@ const login = async (req, res) => {
     });
   }
 };
-module.exports = { register, login };
+
+const { authenticateWithGoogle } = require("../services/googleAuth.service");
+
+const loginWithGoogle = async (req, res, next) => {
+  try {
+    const { credential } = req.body;
+
+    const user = await authenticateWithGoogle(credential);
+
+    const session = await createSession(user, res);
+
+    return res.status(200).json(session);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { register, login, loginWithGoogle };

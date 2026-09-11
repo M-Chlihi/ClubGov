@@ -32,6 +32,11 @@ app.use(
 );
 
 app.use("/api/v1/auth/login", require("./routes/api/login"), authRateLimiter);
+app.use(
+  "/api/v1/auth/google",
+  require("./routes/api/authRoutes"),
+  authRateLimiter,
+);
 
 app.use("/api/v1/auth/refresh", require("./routes/api/refresh"));
 

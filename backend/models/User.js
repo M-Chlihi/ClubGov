@@ -5,6 +5,14 @@ const ROLES = require("../config/roles_list");
 
 const userSchema = new mongoose.Schema(
   {
+    google: {
+      sub: {
+        type: String,
+        unique: true,
+        sparse: true,
+        index: true,
+      },
+    },
     username: {
       type: String,
       required: true,

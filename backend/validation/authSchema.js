@@ -36,9 +36,14 @@ const usersListQuerySchema = Joi.object({
     .valid(ROLE_NAMES.User, ROLE_NAMES.Editor, ROLE_NAMES.Admin)
     .allow(""),
 });
+
+const googleLoginSchema = Joi.object({
+  credential: Joi.string().trim().required(),
+});
 module.exports = {
   registerSchema,
   loginSchema,
   updateRolesSchema,
   usersListQuerySchema,
+  googleLoginSchema,
 };
