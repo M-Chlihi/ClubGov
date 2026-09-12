@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { refreshCookieOptions } = require("../config/cookieOptions");
+const env = require("../config/env");
 
 const createSession = async (user, res) => {
   const roleNames = Object.entries(user.roles)
@@ -15,9 +16,9 @@ const createSession = async (user, res) => {
         createdAt: user.createdAt,
       },
     },
-    process.env.ACCESS_TOKEN_SECRET,
+    env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,
+      expiresIn: env.ACCESS_TOKEN_EXPIRES_IN,
     },
   );
 
@@ -25,9 +26,9 @@ const createSession = async (user, res) => {
     {
       email: user.email,
     },
-    process.env.REFRESH_TOKEN_SECRET,
+    env.REFRESH_TOKEN_SECRET,
     {
-      expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN,
+      expiresIn: env.REFRESH_TOKEN_EXPIRES_IN,
     },
   );
 

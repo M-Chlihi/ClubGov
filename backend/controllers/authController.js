@@ -114,7 +114,7 @@ const login = async (req, res) => {
 };
 
 const { authenticateWithGoogle } = require("../services/googleAuth.service");
-
+const { logEvent } = require("../middleware/logEvent");
 const loginWithGoogle = async (req, res, next) => {
   try {
     const { credential } = req.body;
@@ -125,6 +125,12 @@ const loginWithGoogle = async (req, res, next) => {
 
     return res.status(200).json(session);
   } catch (err) {
+    const logMsg = [
+      `${req.method} ${req.originalUrl} | ERROR: ${err.name} | MESSAGE: ${err.message} | STACK: ${err.stack}`,
+    ];
+
+    logEvent(logMsg, "googleErrlog.txt");
+
     next(err);
   }
 };

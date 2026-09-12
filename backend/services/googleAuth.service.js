@@ -25,7 +25,7 @@ const generateUniqueUsername = async (baseName) => {
 const authenticateWithGoogle = async (credential) => {
   const ticket = await googleClient.verifyIdToken({
     idToken: credential,
-    audience: process.env.GOOGLE_CLIENT_ID,
+    audience: env.GOOGLE_CLIENT_ID,
   });
 
   const payload = ticket.getPayload();
