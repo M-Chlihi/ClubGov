@@ -23,7 +23,13 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const [accessToken, setAccessTokenState] = useState(null);
+  //anoucemnt
+  const [showAnnouncement, setShowAnnouncement] = useState(false);
 
+  const dismissAnnouncement = useCallback(() => {
+    setShowAnnouncement(false);
+  }, []);
+  //anoucemnt
   const storeSession = useCallback((data) => {
     setAccessToken(data.accessToken);
 
@@ -43,7 +49,7 @@ export function AuthProvider({ children }) {
       const data = await loginRequest(credentials);
 
       storeSession(data);
-
+      setShowAnnouncement(true);
       return data;
     },
     [storeSession],
@@ -53,7 +59,7 @@ export function AuthProvider({ children }) {
       const data = await loginWithGoogleRequest(credential);
 
       storeSession(data);
-
+      setShowAnnouncement(true);
       return data;
     },
     [storeSession],
@@ -112,8 +118,20 @@ export function AuthProvider({ children }) {
       refresh,
       logout,
       loginWithGoogle,
+      showAnnouncement,
+      dismissAnnouncement,
     }),
-    [user, loading, accessToken, login, refresh, logout, loginWithGoogle],
+    [
+      user,
+      loading,
+      accessToken,
+      login,
+      refresh,
+      logout,
+      loginWithGoogle,
+      showAnnouncement,
+      dismissAnnouncement,
+    ],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
