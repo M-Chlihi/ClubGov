@@ -35,6 +35,7 @@ const schema = Joi.object({
 
   ACCESS_TOKEN_EXPIRES_IN: Joi.string().trim().min(1).default("120s"),
   REFRESH_TOKEN_EXPIRES_IN: Joi.string().trim().min(1).default("1d"),
+  GOOGLE_CLIENT_ID: Joi.string().required(),
 
   FRONTEND_ORIGIN: Joi.string()
     .trim()
