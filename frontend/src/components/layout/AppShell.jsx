@@ -2,10 +2,12 @@ import { Outlet } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import AnnouncementModal from "../../features/auth/componenets/AnnouncementModal";
 
 export default function AppShell() {
   return (
     <div className="min-h-screen bg-background">
+      <AnnouncementModal />
       <Navbar />
 
       <div className="flex">

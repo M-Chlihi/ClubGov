@@ -57,7 +57,7 @@ export default function Modal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 sm:px-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 sm:px-6  "
       aria-hidden={!open}
     >
       {/* Backdrop */}
@@ -77,7 +77,7 @@ export default function Modal({
         aria-describedby={description ? "modal-description" : undefined}
         tabIndex={-1}
         className={[
-          "relative z-10 w-full",
+          "relative z-10 w-full ",
           sizeClasses[size] ?? sizeClasses.md,
           "overflow-hidden rounded-2xl border border-border",
           "bg-surface shadow-2xl",
@@ -85,7 +85,7 @@ export default function Modal({
         ].join(" ")}
       >
         {/* Header */}
-        <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-6">
+        <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-4 sm:px-6 ">
           <div className="min-w-0">
             <h2
               id="modal-title"
