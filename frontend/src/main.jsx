@@ -1,4 +1,6 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
+
 import ReactDOM from "react-dom/client";
 import "./styles/App.css";
 import { RouterProvider } from "react-router-dom";
@@ -16,6 +18,8 @@ import { router } from "./app/router";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    {" "}
+    <Analytics />
     <AppErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
