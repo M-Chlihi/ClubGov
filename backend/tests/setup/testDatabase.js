@@ -14,7 +14,7 @@ const startDatabase = async () => {
   });
 
   await mongoose.connect(mongoServer.getUri(), {
-    dbName: "unimember_test",
+    dbName: "ClubGov_test",
   });
 };
 
@@ -33,9 +33,7 @@ const clearDatabase = async () => {
   if (mongoose.connection.readyState !== 1) return;
 
   const collections = Object.values(mongoose.connection.collections);
-  await Promise.all(
-    collections.map((collection) => collection.deleteMany({})),
-  );
+  await Promise.all(collections.map((collection) => collection.deleteMany({})));
 };
 
 module.exports = {

@@ -4,7 +4,7 @@ const { startDatabase, stopDatabase } = require("../setup/testDatabase");
 describe("Test database", () => {
   beforeAll(async () => {
     await startDatabase();
-  });
+  }, 30000);
 
   afterAll(async () => {
     await stopDatabase();

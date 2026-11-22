@@ -47,7 +47,7 @@ const authenticateWithGoogle = async (credential) => {
     return existingGoogleUser;
   }
 
-  // Existing UniMember account using email/password
+  // Existing ClubGov account using email/password
   const existingEmailUser = await User.findOne({
     email: email.toLowerCase(),
   }).exec();
