@@ -105,7 +105,7 @@ export default function PublicNavbar() {
               href="#why-cs-club"
               className="text-sm text-text-secondary transition-colors hover:text-buthover"
             >
-              Why UniMember
+              Why ClubGov
             </a>
           </nav>
 
@@ -154,7 +154,7 @@ export default function PublicNavbar() {
                   to="/register"
                   className="group inline-flex items-center gap-2 rounded-full bg-text-primary px-5 py-2.5 text-sm font-medium text-text-inverse transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  Join UniMember
+                  Join ClubGov
                   <ArrowUpRight
                     size={15}
                     className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -232,7 +232,7 @@ export default function PublicNavbar() {
                   {[
                     ["#platform", "Platform"],
                     ["#how-it-works", "How it works"],
-                    ["#why-cs-club", "Why UniMember"],
+                    ["#why-cs-club", "Why ClubGov"],
                   ].map(([href, label]) => (
                     <a
                       key={href}

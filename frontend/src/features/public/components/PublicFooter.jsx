@@ -34,7 +34,7 @@ export default function PublicFooter() {
       </div>
 
       <div className="mx-auto mt-8 max-w-7xl border-t border-border pt-6 text-xs text-text-muted">
-        © {currentYear} UniMember. All rights reserved
+        © {currentYear} ClubGov. All rights reserved
       </div>
     </footer>
   );

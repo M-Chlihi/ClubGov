@@ -23,7 +23,7 @@ export default function ProfileInfo({ user, role }) {
         </h2>
 
         <p className="mt-1 text-sm text-text-secondary">
-          Information associated with your UniMember account.
+          Information associated with your ClubGov account.
         </p>
       </div>
       <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8">

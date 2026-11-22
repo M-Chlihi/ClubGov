@@ -49,11 +49,11 @@ export default function RegisterPage() {
             <p className="text-sm font-medium text-primary">SignUp</p>
 
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary">
-              Join UniMember
+              Join ClubGov
             </h1>
 
             <p className="mt-2 text-sm text-text-secondary">
-              Create your UniMember account and participate in your community
+              Create your ClubGov account and participate in your community
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function RegisterPage() {
               to="/"
               className="mt-4 inline-flex text-sm text-text-muted hover:text-text-primary"
             >
-              ← Back to UniMember
+              ← Back to ClubGov
             </Link>
           </p>
         </div>

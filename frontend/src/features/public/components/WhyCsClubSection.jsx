@@ -31,7 +31,7 @@ export default function WhyCsClubSection() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
           <div>
-            <SectionLabel>Why UniMember</SectionLabel>
+            <SectionLabel>Why ClubGov</SectionLabel>
 
             <motion.h2
               initial={{

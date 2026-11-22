@@ -29,7 +29,7 @@ export default function BrandLogo({
       to={href}
       onClick={onClick}
       className="inline-flex items-center gap-2"
-      aria-label="UniMember home"
+      aria-label="ClubGov home"
     >
       <img
         src={logoMark}
@@ -41,7 +41,7 @@ export default function BrandLogo({
         <span
           className={`${styles.text} font-semibold tracking-tight text-text-primary`}
         >
-          UniMember
+          ClubGov
         </span>
       )}
     </Link>

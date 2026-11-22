@@ -44,7 +44,7 @@ export default function CTASection() {
         </h2>
 
         <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/55 sm:text-base">
-          Join UniMember platform and take part in the decisions that shape what
+          Join ClubGov platform and take part in the decisions that shape what
           the community learns and does next.
         </p>
 

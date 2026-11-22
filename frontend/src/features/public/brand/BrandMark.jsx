@@ -7,7 +7,7 @@ export default function BrandMark({ size = "md" }) {
 
   return (
     <img
-      src="./unimember-mark.svg"
+      src="./ClubGov-mark.svg"
       alt=""
       className={`${sizes[size] ?? sizes.md} w-auto`}
     />

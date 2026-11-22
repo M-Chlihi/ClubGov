@@ -10,7 +10,7 @@ export default function Sidebar() {
 
         <div className="mt-4 border-t border-border pt-4">
           <p className="px-3 text-[10px] font-medium uppercase tracking-[0.16em] text-text-muted">
-            UniMember
+            ClubGov
           </p>
 
           <p className="mt-2 px-3 text-xs leading-5 text-text-muted">

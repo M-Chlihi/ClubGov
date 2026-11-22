@@ -15,13 +15,13 @@ export default function AnnouncementModal() {
           <Scan size={30} nonScalingStroke>
             <User size={10} x={7} y={6} nonScalingStroke />
           </Scan>
-          UniMember Team
+          ClubGov Team
         </span>
       }
       size="md"
     >
       <p className="text-sm leading-6 ">
-        You're in Unimember V1.0. Something new coming soon!
+        You're in ClubGov V1.0. Something new coming soon!
       </p>
 
       <div className="mt-6 flex justify-end">

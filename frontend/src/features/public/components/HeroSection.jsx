@@ -34,7 +34,7 @@ export default function HeroSection() {
             }}
           >
             <SectionLabel>
-              UniMember · University community platform
+              ClubGov · University community platform
             </SectionLabel>{" "}
           </motion.div>
 

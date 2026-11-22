@@ -13,7 +13,7 @@ export default function ProfileHeader({ user, role }) {
 
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
-            UniMember account
+            ClubGov account
           </p>
 
           <h2 className="mt-2 truncate text-2xl font-semibold tracking-tight text-text-primary">

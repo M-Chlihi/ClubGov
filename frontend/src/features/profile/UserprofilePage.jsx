@@ -44,7 +44,7 @@ export default function ProfilePage() {
         </h1>
 
         <p className="mt-2 max-w-2xl text-sm leading-6 text-text-secondary sm:text-base">
-          Manage and review your UniMember account information.
+          Manage and review your ClubGov account information.
         </p>
       </header>
 

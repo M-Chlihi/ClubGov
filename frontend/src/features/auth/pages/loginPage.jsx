@@ -166,7 +166,7 @@ export default function LoginPage() {
               to="/"
               className="mt-4 inline-flex text-sm text-text-muted hover:text-text-primary"
             >
-              ← Back to UniMember
+              ← Back to ClubGov
             </Link>
           </p>
         </div>
